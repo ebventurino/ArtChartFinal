@@ -1,0 +1,42 @@
+﻿@model ArtChart2.Models.Artwork
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artwork</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Medium)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Medium)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtTypeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ArtTypeId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ArtworkId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
