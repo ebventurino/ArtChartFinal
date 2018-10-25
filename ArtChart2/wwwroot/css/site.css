@@ -28,10 +28,20 @@ body {
     margin: 15px;
 }
 
+.container-fluid {
+    margin-top: 80px;
+}
+.makeMoreArt {
+    margin-top: 150px;
+}
+
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+
+
     }
 }
