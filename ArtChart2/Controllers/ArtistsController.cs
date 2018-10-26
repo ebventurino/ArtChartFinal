@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ArtChart2.Data;
 using ArtChart2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ArtChart2.Controllers
 {
@@ -20,13 +21,14 @@ namespace ArtChart2.Controllers
         }
 
         // GET: Artists
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Artist.ToListAsync());
         }
 
         // GET: Artists/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -34,7 +36,7 @@ namespace ArtChart2.Controllers
             }
 
             var artist = await _context.Artist
-                .FirstOrDefaultAsync(m => m.ArtistId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (artist == null)
             {
                 return NotFound();
@@ -54,7 +56,7 @@ namespace ArtChart2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ArtistId,FirstName,LastName,StreetAddress")] Artist artist)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,StreetAddress")] Artist artist)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +68,7 @@ namespace ArtChart2.Controllers
         }
 
         // GET: Artists/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -86,9 +88,9 @@ namespace ArtChart2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ArtistId,FirstName,LastName,StreetAddress")] Artist artist)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,FirstName,LastName,StreetAddress")] Artist artist)
         {
-            if (id != artist.ArtistId)
+            if (id != artist.Id)
             {
                 return NotFound();
             }
@@ -102,7 +104,7 @@ namespace ArtChart2.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ArtistExists(artist.ArtistId))
+                    if (!ArtistExists(artist.Id))
                     {
                         return NotFound();
                     }
@@ -117,7 +119,7 @@ namespace ArtChart2.Controllers
         }
 
         // GET: Artists/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -125,7 +127,7 @@ namespace ArtChart2.Controllers
             }
 
             var artist = await _context.Artist
-                .FirstOrDefaultAsync(m => m.ArtistId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (artist == null)
             {
                 return NotFound();
@@ -137,7 +139,7 @@ namespace ArtChart2.Controllers
         // POST: Artists/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var artist = await _context.Artist.FindAsync(id);
             _context.Artist.Remove(artist);
@@ -145,9 +147,9 @@ namespace ArtChart2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ArtistExists(int id)
+        private bool ArtistExists(string id)
         {
-            return _context.Artist.Any(e => e.ArtistId == id);
+            return _context.Artist.Any(e => e.Id == id);
         }
     }
 }

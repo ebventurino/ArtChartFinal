@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace ArtChart2.Models
 {
-    public class Artist
+    public class Artist : IdentityUser
+
     {
-
-        [Key]
-        public int ArtistId { get; set; }
-
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -22,5 +20,8 @@ namespace ArtChart2.Models
 
         [Required]
         public string StreetAddress { get; set; }
+
+        public virtual ICollection<Artwork> Artworks { get; set; }
+
     }
 }

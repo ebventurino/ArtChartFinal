@@ -23,7 +23,17 @@ namespace ArtChart2.Models
         public string Medium { get; set; }
 
         [Required]
+        public ArtType ArtType { get; set; }
+
+        [Required]
         [Display(Name = "Product Category")]
         public int ArtTypeId { get; set; }
+
+        [Required]
+        public Artist Artist { get; set; }
+
+        [Display(Name = "Artist")]
+        public string ArtistId { get; set; }
+
     }
 }
