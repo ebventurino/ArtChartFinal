@@ -28,5 +28,9 @@ namespace ArtChart2.Models
 
         [Required]
         public Artist Artist { get; set; }
+
+        [Required]
+        [Display(Name = "Artist")]
+        public string ArtistId { get; set; }
     }
 }
