@@ -66,7 +66,7 @@ using ArtChart2.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(118, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "704183f7dc284d65a951dfd111f60ccc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1a2f8be1ce14e99a43cdb978f1f71df", async() => {
                 BeginContext(141, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -116,7 +116,7 @@ using ArtChart2.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(557, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "caa07c6640b046a4ae3f83fe33ea67fc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1afa42c921074a41b087db6e8c4f0b80", async() => {
                 BeginContext(609, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -151,7 +151,7 @@ using ArtChart2.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(637, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "295ae768d7454f5089a3c55635f5c7e7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44406f7e23f5484199a012f884065930", async() => {
                 BeginContext(692, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -186,7 +186,7 @@ using ArtChart2.Models;
             WriteLiteral(" |\r\n                ");
             EndContext();
             BeginContext(723, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44403355044a42aeb403bff906a7a1c7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0f396d0b0544452f8ead51ffda50c1b9", async() => {
                 BeginContext(777, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

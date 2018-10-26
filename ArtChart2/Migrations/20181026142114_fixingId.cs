@@ -2,12 +2,25 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ArtChart2.Data.Migrations
+namespace ArtChart2.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class fixingId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ArtType",
+                columns: table => new
+                {
+                    ArtTypeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Category = table.Column<string>(maxLength: 55, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ArtType", x => x.ArtTypeId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -40,7 +53,11 @@ namespace ArtChart2.Data.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Discriminator = table.Column<string>(nullable: false),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true),
+                    StreetAddress = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -64,6 +81,29 @@ namespace ArtChart2.Data.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Artwork",
+                columns: table => new
+                {
+                    ArtworkId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Title = table.Column<string>(maxLength: 55, nullable: false),
+                    Price = table.Column<double>(nullable: false),
+                    Medium = table.Column<string>(nullable: false),
+                    ArtTypeId = table.Column<int>(nullable: false),
+                    ArtistId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Artwork", x => x.ArtworkId);
+                    table.ForeignKey(
+                        name: "FK_Artwork_AspNetUsers_ArtistId",
+                        column: x => x.ArtistId,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -154,6 +194,11 @@ namespace ArtChart2.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Artwork_ArtistId",
+                table: "Artwork",
+                column: "ArtistId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -195,6 +240,12 @@ namespace ArtChart2.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ArtType");
+
+            migrationBuilder.DropTable(
+                name: "Artwork");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

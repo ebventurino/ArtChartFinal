@@ -25,5 +25,8 @@ namespace ArtChart2.Models
         [Required]
         [Display(Name = "Product Category")]
         public int ArtTypeId { get; set; }
+
+        [Required]
+        public Artist Artist { get; set; }
     }
 }

@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ArtChart2.Data;
 using ArtChart2.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ArtChart2.Controllers
 {
@@ -19,8 +18,8 @@ namespace ArtChart2.Controllers
         {
             _context = context;
         }
+
         // GET: Artworks
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Artwork.ToListAsync());
