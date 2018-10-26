@@ -1,4 +1,4 @@
-﻿@model ArtChart2.Models.Artwork
+﻿@model ArtChart2.Models.ArtistViewModel.ArtworkCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,25 +13,30 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+                <label asp-for="Artwork.Title" class="control-label"></label>
+                <input asp-for="Artwork.Title" class="form-control" />
+                <span asp-validation-for="Artwork.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <label asp-for="Artwork.Price" class="control-label"></label>
+                <input asp-for="Artwork.Price" class="form-control" />
+                <span asp-validation-for="Artwork.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Medium" class="control-label"></label>
-                <input asp-for="Medium" class="form-control" />
-                <span asp-validation-for="Medium" class="text-danger"></span>
+                <label asp-for="Artwork.Medium" class="control-label"></label>
+                <input asp-for="Artwork.Medium" class="form-control" />
+                <span asp-validation-for="Artwork.Medium" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ArtTypeId" class="control-label"></label>
-                <input asp-for="ArtTypeId" class="form-control" />
-                <span asp-validation-for="ArtTypeId" class="text-danger"></span>
+                <label asp-for="Artwork.ArtTypeId" class="control-label"></label>
+                <input asp-for="Artwork.ArtTypeId" class="form-control" />
+                <span asp-validation-for="Artwork.ArtTypeId" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="ArtistId" class="control-label"></label>
+                <input asp-for="ArtistId" class="form-control" />
+                <span asp-validation-for="ArtistId" class="text-danger"></span>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
