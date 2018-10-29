@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtChart2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181026142114_fixingId")]
-    partial class fixingId
+    [Migration("20181029183333_addedArtType")]
+    partial class addedArtType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,8 +44,7 @@ namespace ArtChart2.Migrations
 
                     b.Property<int>("ArtTypeId");
 
-                    b.Property<string>("ArtistId")
-                        .IsRequired();
+                    b.Property<string>("ArtistId");
 
                     b.Property<string>("Medium")
                         .IsRequired();
@@ -57,6 +56,8 @@ namespace ArtChart2.Migrations
                         .HasMaxLength(55);
 
                     b.HasKey("ArtworkId");
+
+                    b.HasIndex("ArtTypeId");
 
                     b.HasIndex("ArtistId");
 
@@ -253,10 +254,14 @@ namespace ArtChart2.Migrations
 
             modelBuilder.Entity("ArtChart2.Models.Artwork", b =>
                 {
+                    b.HasOne("ArtChart2.Models.ArtType", "ArtType")
+                        .WithMany("Artworks")
+                        .HasForeignKey("ArtTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("ArtChart2.Models.Artist", "Artist")
                         .WithMany("Artworks")
-                        .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ArtistId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

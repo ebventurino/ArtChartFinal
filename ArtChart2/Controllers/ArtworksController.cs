@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ArtChart2.Data;
 using ArtChart2.Models;
+using ArtChart2.Models.ArtistViewModel;
 
 namespace ArtChart2.Controllers
 {
@@ -62,7 +63,8 @@ namespace ArtChart2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(artwork);
+            ArtworkCreateViewModel artworkCreateViewModel = new ArtworkCreateViewModel(_context);
+            return View(artworkCreateViewModel);
         }
 
         // GET: Artworks/Edit/5

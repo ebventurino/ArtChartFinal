@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ArtChart2.Migrations
 {
-    public partial class fixingId : Migration
+    public partial class addedArtType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,17 +95,23 @@ namespace ArtChart2.Migrations
                     Price = table.Column<double>(nullable: false),
                     Medium = table.Column<string>(nullable: false),
                     ArtTypeId = table.Column<int>(nullable: false),
-                    ArtistId = table.Column<string>(nullable: false)
+                    ArtistId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Artwork", x => x.ArtworkId);
                     table.ForeignKey(
+                        name: "FK_Artwork_ArtType_ArtTypeId",
+                        column: x => x.ArtTypeId,
+                        principalTable: "ArtType",
+                        principalColumn: "ArtTypeId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Artwork_AspNetUsers_ArtistId",
                         column: x => x.ArtistId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -194,6 +200,11 @@ namespace ArtChart2.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Artwork_ArtTypeId",
+                table: "Artwork",
+                column: "ArtTypeId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Artwork_ArtistId",
                 table: "Artwork",
                 column: "ArtistId");
@@ -241,9 +252,6 @@ namespace ArtChart2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ArtType");
-
-            migrationBuilder.DropTable(
                 name: "Artwork");
 
             migrationBuilder.DropTable(
@@ -260,6 +268,9 @@ namespace ArtChart2.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "ArtType");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
