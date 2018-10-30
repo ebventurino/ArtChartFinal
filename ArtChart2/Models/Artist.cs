@@ -10,6 +10,8 @@ namespace ArtChart2.Models
     public class Artist : IdentityUser
 
     {
+        public Artist() { }
+
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

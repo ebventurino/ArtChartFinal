@@ -19,33 +19,13 @@ namespace ArtChart2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ArtChart2.Models.ArtType", b =>
-                {
-                    b.Property<int>("ArtTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(55);
-
-                    b.HasKey("ArtTypeId");
-
-                    b.ToTable("ArtType");
-                });
-
             modelBuilder.Entity("ArtChart2.Models.Artwork", b =>
                 {
                     b.Property<int>("ArtworkId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ArtTypeId");
-
-                    b.Property<string>("ArtistId")
-                        .IsRequired();
-
-                    b.Property<int?>("ArtworkId1");
+                    b.Property<string>("ArtistId");
 
                     b.Property<string>("Medium")
                         .IsRequired();
@@ -59,8 +39,6 @@ namespace ArtChart2.Migrations
                     b.HasKey("ArtworkId");
 
                     b.HasIndex("ArtistId");
-
-                    b.HasIndex("ArtworkId1");
 
                     b.ToTable("Artwork");
                 });
@@ -257,12 +235,7 @@ namespace ArtChart2.Migrations
                 {
                     b.HasOne("ArtChart2.Models.Artist", "Artist")
                         .WithMany("Artworks")
-                        .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("ArtChart2.Models.Artwork")
-                        .WithMany("ArtType")
-                        .HasForeignKey("ArtworkId1");
+                        .HasForeignKey("ArtistId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

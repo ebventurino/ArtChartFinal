@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using ArtChart2.Data;
 using ArtChart2.Models;
 
@@ -14,15 +17,22 @@ namespace ArtChart2.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        private readonly UserManager<Artist> _userManager;
+
         public ArtworksController(ApplicationDbContext context)
         {
             _context = context;
+            //_userManager = userManager;
+
         }
+        private Task<Artist> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Artworks
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Artwork.ToListAsync());
+            var applicationDbContext = _context.Artwork.Include(p => p.Artist);
+
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Artworks/Details/5
@@ -34,6 +44,8 @@ namespace ArtChart2.Controllers
             }
 
             var artwork = await _context.Artwork
+                .Include(p => p.Artist)
+
                 .FirstOrDefaultAsync(m => m.ArtworkId == id);
             if (artwork == null)
             {
@@ -44,8 +56,14 @@ namespace ArtChart2.Controllers
         }
 
         // GET: Artworks/Create
-        public IActionResult Create()
+        [Authorize]
+        public async Task<IActionResult> Create()
         {
+
+            var user = await GetCurrentUserAsync();
+
+            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id");
+
             return View();
         }
 
@@ -54,14 +72,18 @@ namespace ArtChart2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ArtworkId,Title,Price,Medium,ArtTypeId")] Artwork artwork)
+        public async Task<IActionResult> Create(Artwork artwork)
         {
             if (ModelState.IsValid)
             {
+                var user = await GetCurrentUserAsync();
+
+                artwork.Artist = user;
                 _context.Add(artwork);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Id", artwork.Artist);
             return View(artwork);
         }
 

@@ -9,15 +9,15 @@ namespace ArtChart2.Models.ArtistViewModel
 {
     public class ArtworkCreateViewModel
     {
+        private ApplicationDbContext _context;
+
+        public ArtworkCreateViewModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         public Artwork Artwork { get; set; }
-        public List<ArtType> ArtTypes { get; set; }
 
-        //    public ArtworkCreateViewModel(ApplicationDbContext context)
-        //    {
-        //        //ArtTypes = context.ArtType.Select(ArtType =>
-        //        //new SelectListItem { Text = ArtType.Category, Value = ArtType.ArtTypeId }).ToList();
-        //    }
-        //}
+
     }
 }
