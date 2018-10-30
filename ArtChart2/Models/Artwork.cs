@@ -22,6 +22,7 @@ namespace ArtChart2.Models
         [Required]
         public string Medium { get; set; }
 
+
         public Artist Artist { get; set; }
 
  

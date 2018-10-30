@@ -83,11 +83,6 @@ C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\ArtChar
 C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\ArtChart2.dll
 C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\ArtChart2.pdb
 C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\ArtChart2.csproj.CopyComplete
-C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artists\Create.g.cshtml.cs
-C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artists\Delete.g.cshtml.cs
-C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artists\Details.g.cshtml.cs
-C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artists\Edit.g.cshtml.cs
-C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artists\Index.g.cshtml.cs
 C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artworks\Create.g.cshtml.cs
 C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artworks\Delete.g.cshtml.cs
 C:\Users\johnw\workspace\ArtChartFinal\ArtChart2\obj\Debug\netcoreapp2.1\Razor\Views\Artworks\Details.g.cshtml.cs

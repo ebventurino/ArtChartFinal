@@ -13,8 +13,8 @@ namespace ArtChart2.Data
             : base(options)
         {
         }
-        public DbSet<ArtChart2.Models.Artwork> Artwork { get; set; }
-        public DbSet<ArtChart2.Models.Artist> Artist { get; set; }
+        public DbSet<Artwork> Artwork { get; set; }
+        public DbSet<Artist> Artists { get; set; }
        
 
         //    protected override void OnModelCreating(ModelBuilder modelBuilder)
