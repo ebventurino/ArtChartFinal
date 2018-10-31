@@ -10,17 +10,17 @@ namespace ArtChart2.Models
     public class Artist : IdentityUser
 
     {
-        public Artist() { }
+        //public Artist() { }
 
-        [Required]
+        //[Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
+        //[Required]
         public string StreetAddress { get; set; }
 
         public virtual ICollection<Artwork> Artworks { get; set; }

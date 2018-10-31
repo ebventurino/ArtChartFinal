@@ -19,15 +19,18 @@ namespace ArtChart2.Controllers
 
         private readonly UserManager<Artist> _userManager;
 
-        public ArtworksController(ApplicationDbContext context)
+        public ArtworksController(ApplicationDbContext context,
+                                UserManager<Artist> userManager)
         {
             _context = context;
-            //_userManager = userManager;
+            _userManager = userManager;
 
         }
         private Task<Artist> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         // GET: Artworks
+        [Authorize]
+
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Artwork.Include(p => p.Artist);
@@ -60,9 +63,8 @@ namespace ArtChart2.Controllers
         public async Task<IActionResult> Create()
         {
 
-            var user = await GetCurrentUserAsync();
 
-            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id");
+            //ViewData["ArtistId"] = new SelectList(_context.Artist, "Id");
 
             return View();
         }
@@ -72,6 +74,7 @@ namespace ArtChart2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create(Artwork artwork)
         {
             if (ModelState.IsValid)
@@ -83,7 +86,7 @@ namespace ArtChart2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ArtistId"] = new SelectList(_context.Artists, "Id", "Id", artwork.Artist);
+            //ViewData["ArtistId"] = new SelectList(_context.Artist, "Id", "Id", artwork.Artist);
             return View(artwork);
         }
 

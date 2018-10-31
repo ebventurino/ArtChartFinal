@@ -14,7 +14,7 @@ namespace ArtChart2.Data
         {
         }
         public DbSet<Artwork> Artwork { get; set; }
-        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Artist> Artist { get; set; }
        
 
         //    protected override void OnModelCreating(ModelBuilder modelBuilder)
