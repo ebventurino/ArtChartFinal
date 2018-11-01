@@ -25,6 +25,8 @@ namespace ArtChart2.Models
 
         public Artist Artist { get; set; }
 
+        public string ArtistId { get; set; }
+
  
 
     }

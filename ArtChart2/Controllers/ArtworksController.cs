@@ -33,10 +33,18 @@ namespace ArtChart2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Artwork.Include(p => p.Artist);
+            var user = await GetCurrentUserAsync();
+
+            var applicationDbContext = _context.Artwork.Where(p => p.ArtistId == user.Id);
 
             return View(await applicationDbContext.ToListAsync());
+
+
         }
+
+        //var selectedArtworks = from Id in Artist
+        //                       where Id == Artist.Id;
+                                   
 
         // GET: Artworks/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -47,7 +55,7 @@ namespace ArtChart2.Controllers
             }
 
             var artwork = await _context.Artwork
-                .Include(p => p.Artist)
+                .Where(p => p.ArtistId == p.Artist.Id)
 
                 .FirstOrDefaultAsync(m => m.ArtworkId == id);
             if (artwork == null)

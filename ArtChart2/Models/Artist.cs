@@ -13,6 +13,7 @@ namespace ArtChart2.Models
         //public Artist() { }
 
         //[Required]
+
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
