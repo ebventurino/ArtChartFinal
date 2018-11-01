@@ -5,7 +5,11 @@ Steps for using:
 
 2. CD into the directory and Start ArtChart2.sln to open in Visual Studio
 
-3. Make sure the database is set up in the Object Explorer 
+3. Make sure the database is set up in the Object Explorer. Do so by going to appsettings.json and changing :  
+
+            "DefaultConnection": "Server=YOUR_SERVER_NAME_HERE\\SQLEXPRESS01;Database=ArtChart;Trusted_Connection=True;"
+            
+
 
 4. Hit ISS Express and that will start the app.
 
