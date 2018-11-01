@@ -9,10 +9,10 @@ Steps for using:
 
             "DefaultConnection": "Server=YOUR_SERVER_NAME_HERE\\SQLEXPRESS01;Database=ArtChart;Trusted_Connection=True;"
             
+4. Run "update-database" in the Package Manager Console.
+            
+5. Hit ISS Express and that will start the app.
 
+6. Register as a new User
 
-4. Hit ISS Express and that will start the app.
-
-5. Register as a new User
-
-6. Go to the "Artwork" tab in the application, and you will be able to create an entry for your artwork. You can also delete, edit, or see details of the art you submit.
+7. Go to the "Artwork" tab in the application, and you will be able to create an entry for your artwork. You can also delete, edit, or see details of the art you submit.
