@@ -1,7 +1,8 @@
 # ArtChartFinal
 
 
-![alt text](http://i.imgur.com/xWxwxkT.jpg)
+![alt text](https://i.imgur.com/xv59Oxp.jpg)
+![alt text](https://i.imgur.com/ZkIlyrN.jpg)
 
 Steps for using:
 
@@ -20,3 +21,6 @@ Steps for using:
 6. Register as a new User
 
 7. Go to the "Artwork" tab in the application, and you will be able to create an entry for your artwork. You can also delete, edit, or see details of the art you submit.
+
+![alt text](https://i.imgur.com/1GeEYqm.png)
+
