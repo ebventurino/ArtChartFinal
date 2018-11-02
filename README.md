@@ -1,7 +1,7 @@
 # ArtChartFinal
 
 
-![alt text](/http://i.imgur.com/xWxwxkT.jpg "Logo Title Text 1")
+![alt text](http://i.imgur.com/xWxwxkT.jpg)
 
 Steps for using:
 
