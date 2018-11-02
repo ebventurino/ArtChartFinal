@@ -12224,11 +12224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\johnw\\workspace\\THEONEFOLDERTORULETHEMALL\\ArtChartFinal\\ArtChart2\\ArtChart2.csproj",
+      "projectUniqueName": "C:\\Users\\johnw\\workspace\\testing\\ArtChartFinal\\ArtChart2\\ArtChart2.csproj",
       "projectName": "ArtChart2",
-      "projectPath": "C:\\Users\\johnw\\workspace\\THEONEFOLDERTORULETHEMALL\\ArtChartFinal\\ArtChart2\\ArtChart2.csproj",
+      "projectPath": "C:\\Users\\johnw\\workspace\\testing\\ArtChartFinal\\ArtChart2\\ArtChart2.csproj",
       "packagesPath": "C:\\Users\\johnw\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\johnw\\workspace\\THEONEFOLDERTORULETHEMALL\\ArtChartFinal\\ArtChart2\\obj\\",
+      "outputPath": "C:\\Users\\johnw\\workspace\\testing\\ArtChartFinal\\ArtChart2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

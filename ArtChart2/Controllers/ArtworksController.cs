@@ -129,7 +129,10 @@ namespace ArtChart2.Controllers
             if (ModelState.IsValid)
             {
                 try
-                { artwork.Artist = user;
+                {
+                    var user = await GetCurrentUserAsync();
+
+                    artwork.Artist = user;
                     _context.Update(artwork);
                     await _context.SaveChangesAsync();
                 }
