@@ -23,5 +23,7 @@ Steps for using:
 
 7. Go to the "Artwork" tab in the application, and you will be able to create an entry for your artwork. You can also delete, edit, or see details of the art you submit.
 
+<hr>
+
 ![alt text](https://i.imgur.com/1GeEYqm.png)
 
