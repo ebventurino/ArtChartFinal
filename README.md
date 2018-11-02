@@ -1,6 +1,7 @@
 # ArtChartFinal
 
-![](src/https://imgur.com/xWxwxkT)
+![](https://imgur.com/xWxwxkT)
+
 Steps for using:
 
 1. Clone down the ArtChartFinal repo
