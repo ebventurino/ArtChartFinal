@@ -3,6 +3,7 @@
 
 ![alt text](https://i.imgur.com/xv59Oxp.jpg)
 ![alt text](https://i.imgur.com/ZkIlyrN.jpg)
+<hr>
 
 Steps for using:
 
